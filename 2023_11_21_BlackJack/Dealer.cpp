@@ -28,4 +28,6 @@ void Dealer::Play(Shoe& shoe) {
 		showHand();
 		cout << "====================" << endl;
 	}
+	if (calcScore() <= 0) return false;
+	return true;
 }

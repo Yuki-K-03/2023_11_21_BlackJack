@@ -21,6 +21,8 @@ void Player::Play(Shoe& shoe) {
 	do {
 		cout << "hit or stand >> ";
 
+		//“ü—Í
+		char str[HAND_SIZE]; //•¶š—ñŒ^
 		cin >> str; //•¶š—ñ‚ğ“ü—Í
 		//hit‚ª“ü—Í‚³‚ê‚½ê‡
 		if (strcmp(str, "hit") == 0) {
