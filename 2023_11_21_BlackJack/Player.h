@@ -10,5 +10,5 @@ public :
 	virtual ~Player();
 	//using Person::Person;
 private :
-	void Play(Shoe& shoe) override;
+	void PlayBase(Shoe& shoe) override;
 };

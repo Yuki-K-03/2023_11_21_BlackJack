@@ -16,7 +16,7 @@ Dealer::~Dealer() {
 }
 
 
-void Dealer::Play(Shoe& shoe) {
+void Dealer::PlayBase(Shoe& shoe) {
 	//スコアが16以下の場合hitを続ける
 	while (calcScore() < 17 && calcScore() > 0) {
 		//ヒットする

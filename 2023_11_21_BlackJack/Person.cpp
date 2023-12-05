@@ -7,7 +7,7 @@ using namespace std;
 
 
 Person::Person(const char* pName) {
-	fill_n(_hand, HAND_SIZE, -1);
+	//fill_n(_hand, HAND_SIZE, -1);
 	_cardNum = 0;
 
 	_pName = new char[strlen(pName) + 1];
@@ -30,6 +30,7 @@ int Person::calcScore() const {
 	if (_cardNum <= 0) {
 		return 0;
 	}
+	printf("cardNum:%d\n", _cardNum);
 	int* data = NULL; //スコア計算用配列用ポインタ
 
 	data = new(nothrow) int[_cardNum]; //手札枚数確保
@@ -40,11 +41,11 @@ int Person::calcScore() const {
 		return 0;
 	}
 
-	//手札配列からデータを取得,1-10の値として格納
+
 	for (int i = 0; i < _cardNum; i++) {
-		if (_hand[i] % 13 < 10) {
-			//配列の値が10以下(0-9)であれば1を加えて格納
-			*(data + i) = _hand[i] % 13 + 1;
+		printf("_handNum:%d\n", _hand[i].GetNum());
+		if (_hand[i].GetNum() < 11) {
+			*(data + i) = _hand[i].GetNum();
 		}
 		else {
 			//ここで10を格納しているのは,11-13のカードのこと
@@ -62,7 +63,8 @@ int Person::calcScore() const {
 	//ので先頭だけ調べればよい
 	for (int i = 1; i < _cardNum; i++) {
 		//スコアにデータを加える
-		score = score + (*(data + i));
+		printf("score += %d\n", (*(data + i)));
+		score += (*(data + i));
 	}
 
 	//先頭が1(A)であるか判定し状況によって1 or 11として計算
@@ -79,6 +81,7 @@ int Person::calcScore() const {
 	}
 	else {
 		//先頭が1でないなら,スコアにデータをそのまま加える
+		printf("score += %d\n", data[0]);
 		score += data[0];
 	}
 
@@ -98,15 +101,14 @@ int Person::calcScore() const {
 }
 
 void Person::hit(Shoe& shoe) {
-	int card = shoe.takeCard();
-	if (card >= 0 && _cardNum <= 15) {
-		_hand[_cardNum] = card;
+	if (shoe.takeCard(_hand[_cardNum])) {
 		_cardNum++;
 	}
 	else
 	{
 		cout << "カードが引けませんでした。" << endl;
 	}
+	//shoe.takeCard(_hand[_cardNum]);
 }
 
 void Person::showHand() const {
@@ -114,21 +116,22 @@ void Person::showHand() const {
 	cout << "hand: ";
 	//配列の最初から最後までを順に表示
 	for (int i = 0; i < _cardNum; i++) {
-		//カードの種類(スペード,ハート,ダイヤ,クラブ)を探索
-		int type = (_hand[i] % CARD_NUM) / 13; //デッキごとに分けた後,13で割った数(0-3)で4種類を分割
+		////カードの種類(スペード,ハート,ダイヤ,クラブ)を探索
+		//int type = (_hand[i] % CARD_MAX) / 13; //デッキごとに分けた後,13で割った数(0-3)で4種類を分割
 
-		//標準出力
-		const char* strType[] = { "s", "h", "d", "c" };
-		cout << strType[type];
-		cout << _hand[i] % 13 + 1 << ' ';
+		////標準出力
+		//const char* strType[] = { "s", "h", "d", "c" };
+		//cout << strType[type];
+		//cout << _hand[i] % 13 + 1 << ' ';
+		printf("%s:%s ", CARD_NUMBER[_hand[i].GetNum()], CARD_SUIT[_hand[i].GetSuit()]);
 	}
 	//改行
 	cout << endl;
 	cout << "score: " << calcScore() << endl; //スコアの表示
 }
 
-bool Person::play(Shoe &shoe) {
-	Play(shoe);
+bool Person::Play(Shoe &shoe) {
+	PlayBase(shoe);
 	if (calcScore() <= 0) return false;
 	return true;
 }

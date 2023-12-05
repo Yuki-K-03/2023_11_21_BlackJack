@@ -6,6 +6,11 @@
 using namespace std;
 
 
+const int NUMBER_MAX = 13;
+const char* CARD_NUMBER[] = { "Joker", " A", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", " J", " Q", " K" };
+const char* CARD_SUIT[] = { "  heart", "diamond", "  spade", "   club" };
+
+
 void ShowHand(Person& person) {
 	printf("%s\n", person.getName());
 	person.showHand();
@@ -40,6 +45,10 @@ int main()
 	Shoe shoe;
 	shoe._shuffle();
 
+	for (int i = 0; i < 52; i++) {
+		printf("%d, ",shoe._cardShoe[i].GetNum());
+	}
+
 	printf("====================\n");
 	printf("%s\n", p.getName());
 	for (int i = 0; i < 2; i++) {
@@ -58,8 +67,8 @@ int main()
 
 
 
-	if (p.play(shoe)) {
-		d.play(shoe);
+	if (p.Play(shoe)) {
+		d.Play(shoe);
 
 		showResult(p, d);
 	}

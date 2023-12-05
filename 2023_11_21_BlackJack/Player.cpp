@@ -13,7 +13,7 @@ Player::~Player() {
 }
 
 //ƒQ[ƒ€Às
-void Player::Play(Shoe& shoe) {
+void Player::PlayBase(Shoe& shoe) {
 
 	//“ü—Í
 	char str[HAND_SIZE] = {" "}; //•¶š—ñŒ^
@@ -33,5 +33,8 @@ void Player::Play(Shoe& shoe) {
 			showHand();
 			cout << "====================" << endl;
 		}
-	} while (calcScore() && !(strcmp(str, "stand") == 0));
+		else if (strcmp(str, "stand") == 0) {
+			break;
+		}
+	} while (calcScore());
 }

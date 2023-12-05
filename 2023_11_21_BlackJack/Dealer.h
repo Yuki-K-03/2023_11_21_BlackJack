@@ -10,5 +10,5 @@ public :
 	Dealer(const char* name);
 	virtual ~Dealer();
 private:
-	void Play(Shoe& shoe) override;
+	void PlayBase(Shoe& shoe) override;
 };
