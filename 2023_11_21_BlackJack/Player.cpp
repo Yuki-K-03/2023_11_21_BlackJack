@@ -33,5 +33,5 @@ void Player::Play(Shoe& shoe) {
 			showHand();
 			cout << "====================" << endl;
 		}
-	} while (calcScore() && !(strcmp(str, "stand") == 0));
+	} while (calcScore() && strcmp(str, "stand") != 0);
 }
