@@ -26,7 +26,7 @@ const char* Person::getName() const {
 }
 
 //スコアの計算
-int Person::calcScore() {
+int Person::calcScore() const {
 	if (_cardNum <= 0) {
 		return 0;
 	}
@@ -109,7 +109,7 @@ void Person::hit(Shoe& shoe) {
 	}
 }
 
-void Person::showHand() {
+void Person::showHand() const {
 	//標準出力
 	cout << "hand: ";
 	//配列の最初から最後までを順に表示

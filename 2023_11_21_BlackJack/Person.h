@@ -15,8 +15,8 @@ public:
 	virtual ~Person();
 
 	void hit(Shoe& shoe);
-	void showHand();
-	int calcScore();
+	void showHand() const;
+	int calcScore() const;
 	bool PlayBase(Shoe& shoe);
 
 	const char* getName() const;
