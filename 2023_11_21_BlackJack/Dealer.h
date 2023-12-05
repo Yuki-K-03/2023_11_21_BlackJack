@@ -9,6 +9,6 @@ public :
 	Dealer();
 	Dealer(const char* name);
 	virtual ~Dealer();
-public:
-	void Play(Shoe& shoe);
+private:
+	void Play(Shoe& shoe) override;
 };

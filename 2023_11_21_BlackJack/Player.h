@@ -9,6 +9,6 @@ public :
 	Player(const char* name);
 	virtual ~Player();
 	//using Person::Person;
-public :
-	void Play(Shoe& shoe);
+private :
+	void Play(Shoe& shoe) override;
 };

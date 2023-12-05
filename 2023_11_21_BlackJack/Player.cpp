@@ -16,7 +16,7 @@ Player::~Player() {
 void Player::Play(Shoe& shoe) {
 
 	//入力
-	char str[HAND_SIZE] = {""}; //文字列型
+	char str[HAND_SIZE] = {" "}; //文字列型
 	//バーストするまでループ処理
 	do {
 		cout << "hit or stand >> ";
