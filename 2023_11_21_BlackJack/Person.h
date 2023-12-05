@@ -17,7 +17,7 @@ public:
 	void hit(Shoe& shoe);
 	void showHand() const;
 	int calcScore() const;
-	bool PlayBase(Shoe& shoe);
+	bool play(Shoe& shoe);
 
 	const char* getName() const;
 };

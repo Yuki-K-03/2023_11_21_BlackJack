@@ -127,7 +127,7 @@ void Person::showHand() const {
 	cout << "score: " << calcScore() << endl; //スコアの表示
 }
 
-bool Person::PlayBase(Shoe &shoe) {
+bool Person::play(Shoe &shoe) {
 	Play(shoe);
 	if (calcScore() <= 0) return false;
 	return true;

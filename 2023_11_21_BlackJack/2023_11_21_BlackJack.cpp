@@ -58,8 +58,8 @@ int main()
 
 
 
-	if (p.PlayBase(shoe)) {
-		d.PlayBase(shoe);
+	if (p.play(shoe)) {
+		d.play(shoe);
 
 		showResult(p, d);
 	}
