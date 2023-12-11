@@ -17,7 +17,6 @@ struct CardKinds{
 class Card
 {
 protected :
-	public :
 	int _cardNum;
 	int _cardSuit;
 

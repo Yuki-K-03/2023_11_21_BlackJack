@@ -78,7 +78,6 @@ int Person::calcScore() const {
 	}
 	else {
 		//先頭が1でないなら,スコアにデータをそのまま加える
-		printf("score += %d\n", data[0]);
 		score += data[0];
 	}
 
@@ -105,7 +104,6 @@ void Person::hit(Shoe& shoe) {
 	{
 		cout << "カードが引けませんでした。" << endl;
 	}
-	//shoe.takeCard(_hand[_cardNum]);
 }
 
 void Person::showHand() const {

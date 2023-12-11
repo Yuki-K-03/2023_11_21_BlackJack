@@ -48,6 +48,7 @@ int main()
 	for (int i = 0; i < 52; i++) {
 		printf("%d, ",shoe._cardShoe[i].GetNum());
 	}
+	printf("\n");
 
 	printf("====================\n");
 	printf("%s\n", p.getName());
