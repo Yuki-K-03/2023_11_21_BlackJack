@@ -30,7 +30,6 @@ int Person::calcScore() const {
 	if (_cardNum <= 0) {
 		return 0;
 	}
-	printf("cardNum:%d\n", _cardNum);
 	int* data = NULL; //スコア計算用配列用ポインタ
 
 	data = new(nothrow) int[_cardNum]; //手札枚数確保
@@ -43,7 +42,6 @@ int Person::calcScore() const {
 
 
 	for (int i = 0; i < _cardNum; i++) {
-		printf("_handNum:%d\n", _hand[i].GetNum());
 		if (_hand[i].GetNum() < 11) {
 			*(data + i) = _hand[i].GetNum();
 		}
@@ -63,7 +61,6 @@ int Person::calcScore() const {
 	//ので先頭だけ調べればよい
 	for (int i = 1; i < _cardNum; i++) {
 		//スコアにデータを加える
-		printf("score += %d\n", (*(data + i)));
 		score += (*(data + i));
 	}
 
@@ -116,13 +113,6 @@ void Person::showHand() const {
 	cout << "hand: ";
 	//配列の最初から最後までを順に表示
 	for (int i = 0; i < _cardNum; i++) {
-		////カードの種類(スペード,ハート,ダイヤ,クラブ)を探索
-		//int type = (_hand[i] % CARD_MAX) / 13; //デッキごとに分けた後,13で割った数(0-3)で4種類を分割
-
-		////標準出力
-		//const char* strType[] = { "s", "h", "d", "c" };
-		//cout << strType[type];
-		//cout << _hand[i] % 13 + 1 << ' ';
 		printf("%s:%s ", CARD_NUMBER[_hand[i].GetNum()], CARD_SUIT[_hand[i].GetSuit()]);
 	}
 	//改行
